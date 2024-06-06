@@ -75,12 +75,6 @@ class server:
         self.check_conn_thread.daemon = True
         self.check_conn_thread.start()
 
-    def printt(self):
-        while True:
-            print(self.conn_list)
-            print(self.client_details)
-            time.sleep(2)
-
     def sock_accept(self):
         while True:
             c, (ip, port) = self.sock.accept()
