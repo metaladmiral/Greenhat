@@ -16,6 +16,8 @@ def connect_to_client(self_, client_uid):
     self_.default_text = constants.DEFAULT_TEXT + "/" + client_comp_name + "> "
 
     while True:
+        if not self_.is_conn_established:
+            break
 
         print(self_.default_text, end="")
         get_cmd_input = input("")
@@ -25,6 +27,9 @@ def connect_to_client(self_, client_uid):
             getcwd = client_sock.recv(1024).decode()
             self_.default_text = constants.DEFAULT_TEXT + " " + getcwd + "> "
             while True:
+                if not self_.is_conn_established:
+                    break
+
                 print(self_.default_text, end="")
                 get_cmd_input_shell = input("")
                 if get_cmd_input_shell[0:4] == "exit":
