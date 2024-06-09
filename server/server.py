@@ -5,7 +5,7 @@ import sys
 import utils
 import constants
 
-from .cmd_controllers.pre_client_conn.controller import pre_client_conn_cmds
+from .cmd_controllers.pre_client_conn.controller import Pre_Client_Cmd_Controller
 
 from .misc.controller import Misc_Controller
 
@@ -39,17 +39,17 @@ class server:
             get_cmd_input = input("")
 
             if get_cmd_input == "help":
-                pre_client_conn_cmds.help()
+                Pre_Client_Cmd_Controller.help()
 
             elif get_cmd_input[:7] == "connect":
                 client_uid = get_cmd_input[8:]
-                pre_client_conn_cmds.connect_to_client(self, client_uid)
+                Pre_Client_Cmd_Controller.connect_to_client(self, client_uid)
 
             elif get_cmd_input == "port":
                 print(constants.PORT)
 
             elif get_cmd_input == "targets":
-                pre_client_conn_cmds.get_targets(self)
+                Pre_Client_Cmd_Controller.get_targets(self)
 
             elif get_cmd_input == "exit":
                 sys.exit()

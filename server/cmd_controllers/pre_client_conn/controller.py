@@ -1,7 +1,7 @@
 from . import help, connect_to_client, get_targets
 
 
-class pre_client_conn_cmds:
+class Pre_Client_Cmd_Controller:
 
     def help():
         help.help()
